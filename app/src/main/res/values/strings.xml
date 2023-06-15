@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Blogger Posts API</string>
+    <string name="hint_busca_blog_url">Ingresa la URL del blog…</string>
+    <string name="btn_buscar">Buscar</string>
 </resources>
