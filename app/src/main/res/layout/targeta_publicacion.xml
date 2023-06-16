@@ -36,6 +36,11 @@
                 android:gravity="center"/>
         </TableRow>
 
+        <Button
+            android:id="@+id/btn_targeta_publicacion"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_buscar"/>
+
     </TableLayout>
 
 </androidx.cardview.widget.CardView>

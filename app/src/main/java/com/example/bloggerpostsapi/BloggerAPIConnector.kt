@@ -2,6 +2,7 @@ package com.example.bloggerpostsapi
 
 import android.content.Context
 import com.example.bloggerpostsapi.modelo.Blog
+import com.example.bloggerpostsapi.modelo.Publicacion
 import com.example.bloggerpostsapi.modelo.PublicacionLista
 
 class BloggerAPIConnector( private val contexto: Context ) {
@@ -21,5 +22,10 @@ class BloggerAPIConnector( private val contexto: Context ) {
     fun obtenEntradasDeBlog(blogID: String, res: (PublicacionLista) -> Unit) {
         var req = "https://www.googleapis.com/blogger/v3/blogs/$blogID/posts?key=$GOOGLE_API_KEY"
         con.get( req ) {res.invoke( PublicacionLista(it) )}
+    }
+
+    fun obtenPublicacionEspecifica(blogID: String, postID: String, res: (Publicacion) -> Unit) {
+        var req = "https://www.googleapis.com/blogger/v3/blogs/$blogID/posts/$postID?key=$GOOGLE_API_KEY"
+        con.get( req ) {res.invoke( Publicacion(it) )}
     }
 }

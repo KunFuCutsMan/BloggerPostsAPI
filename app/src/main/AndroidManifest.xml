@@ -15,6 +15,9 @@
         android:theme="@style/Theme.BloggerPostsAPI"
         tools:targetApi="31">
         <activity
+            android:name=".EntradaContenidoActivity"
+            android:exported="false" />
+        <activity
             android:name=".EntradasBlogActivity"
             android:exported="false" />
         <activity
