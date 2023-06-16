@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        connector = BloggerAPIConnector(baseContext)
+        connector = BloggerAPIConnector(this)
 
         txtBuscaBlogURL = findViewById(R.id.txt_buscaBlogURL)
         btnBuscaBlogURL = findViewById(R.id.btn_buscaBlogURL)
@@ -37,6 +37,11 @@ class MainActivity : AppCompatActivity() {
                 .setTitle("Blog Encontrado")
                 .setMessage("Encontramos un blog bajo el nombre: ${it.name}")
                 .show()
+
+            // Comienza la actividad de la actividad
+            var intent = Intent(this, EntradasBlogActivity::class.java)
+            intent.putExtra("blogID", it.id)
+            startActivity(intent)
         }
     }
 }

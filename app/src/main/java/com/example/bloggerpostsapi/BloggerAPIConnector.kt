@@ -1,10 +1,8 @@
 package com.example.bloggerpostsapi
 
-import android.app.AlertDialog
 import android.content.Context
-import android.widget.Toast
 import com.example.bloggerpostsapi.modelo.Blog
-import org.json.JSONObject
+import com.example.bloggerpostsapi.modelo.PublicacionLista
 
 class BloggerAPIConnector( private val contexto: Context ) {
     private val GOOGLE_API_KEY: String
@@ -18,5 +16,10 @@ class BloggerAPIConnector( private val contexto: Context ) {
     fun obtenBlogDeURL(urlBlog: String, res: (Blog) -> Unit) {
         var req = "https://www.googleapis.com/blogger/v3/blogs/byurl?url=$urlBlog&key=$GOOGLE_API_KEY"
         con.get( req ) {res.invoke( Blog(it) )}
+    }
+
+    fun obtenEntradasDeBlog(blogID: String, res: (PublicacionLista) -> Unit) {
+        var req = "https://www.googleapis.com/blogger/v3/blogs/$blogID/posts?key=$GOOGLE_API_KEY"
+        con.get( req ) {res.invoke( PublicacionLista(it) )}
     }
 }

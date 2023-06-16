@@ -5,7 +5,7 @@ import org.json.JSONObject
 data class Publicacion(private val data: JSONObject ) {
     val kind = data.getString("kind")
     val id = data.getString("id")
-    val blog = data.getJSONObject("blog").getString("id")
+    val blogID = data.getJSONObject("blog").getString("id")
     val published = data.getString("published")
     val updated = data.getString("updated")
     val selfLink = data.getString("selfLink")
