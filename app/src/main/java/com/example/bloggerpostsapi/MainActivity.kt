@@ -1,5 +1,6 @@
 package com.example.bloggerpostsapi
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
             AlertDialog.Builder(this)
                 .setTitle("Blog Encontrado")
-                .setMessage("Encontramos un blog bajo el nombre: ${it["name"]}")
+                .setMessage("Encontramos un blog bajo el nombre: ${it.name}")
                 .show()
         }
     }
